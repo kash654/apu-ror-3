@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  #get 'guesses/create'
+
   root to: 'games#index'
   
-  resources :games
+  resources :games do
+    resources :guesses, only: :create
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
